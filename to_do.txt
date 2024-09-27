@@ -1,6 +1,6 @@
 Implement error handling for:
 
-Non-existent user IDs (return 404 if not found).
+Non-existent user IDs (return 404 if not found) - Django returns a 404 when id not found by default
 Invalid input data (return meaningful error messages).
 
 Additional:
