@@ -4,6 +4,11 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from myproject.utils import PasswordTooShortException
 
+from rest_framework.pagination import PageNumberPagination
+
+class UserViewSetPagination(PageNumberPagination):
+    page_size = 2
+
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -11,14 +16,19 @@ class UserViewSet(viewsets.ModelViewSet):
     """
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    pagination_class = UserViewSetPagination
 
 
     def validate_request_data(self, request_method, request_data):
 
         # For example to check that password is not too short:
+        print("-----------------------")
+        print(request_method)
+        print("-----------------------")
         if request_method == "POST":
-            if request_data["password"] and len(request_data["password"]) < 8:
-                raise(PasswordTooShortException)
+            if "password" in request_data.keys():
+                if len(request_data["password"]) < 8:
+                    raise(PasswordTooShortException)
 
 
     def get_serializer_context(self):
