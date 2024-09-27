@@ -1,9 +1,12 @@
 # UserManagementAPI
 
-Python version: 3.10.18
-Django version: 4.2
+This is a Django project that overrides the default user model, and implements
+a user management API using the Django Rest Framework.\
 
-To get started:
+Python version: 3.10.18\
+Django version: 4.2\
+
+### To get started:\
 
 Create virtual environment:
 ```
@@ -19,7 +22,7 @@ Start server:
 python manage.py runserver
 ```
 
-curl api calls:
+### curl api calls:
 ```
 curl http://127.0.0.1:8000/users/
 ```
