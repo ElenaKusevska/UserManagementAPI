@@ -37,7 +37,7 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=100)
     email = models.CharField(max_length=100, unique=True)
-    age = models.PositiveIntegerField(blank=True, null=True, default=None,) # integer, must be positive, is optinal blank=True, null=True, 
+    age = models.PositiveIntegerField(blank=True, null=True, default=None,) 
 
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
