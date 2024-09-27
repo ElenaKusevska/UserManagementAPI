@@ -1,0 +1,9 @@
+Implement error handling for:
+
+Non-existent user IDs (return 404 if not found).
+Invalid input data (return meaningful error messages).
+
+Additional:
+Pagination: Add pagination to the GET /users/ endpoint.
+Search and Filtering: Implement filtering to search users by name or email using query parameters (GET /users/?search=<term>).
+Testing: Add unit tests for two of the API endpoints using Django's test framework
