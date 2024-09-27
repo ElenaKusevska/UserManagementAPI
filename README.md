@@ -1,12 +1,12 @@
 # UserManagementAPI
 
 This is a Django project that overrides the default user model, and implements
-a user management API using the Django Rest Framework.\
+a user management API using the Django Rest Framework.
 
 Python version: 3.10.18\
-Django version: 4.2\
+Django version: 4.2
 
-### To get started:\
+### To get started:
 
 Create virtual environment:
 ```
