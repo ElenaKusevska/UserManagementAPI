@@ -8,7 +8,8 @@ from the APIException class. For example, in myproject/users/views.py for POST r
 I am checking if the password length is too short, and raising an exception defined in /myproject/myproject/utils/py
 
 Additional:
-Pagination: Add pagination to the GET /users/ endpoint - using StandardResultsSetPagination
+Pagination: Add pagination to the GET /users/ endpoint - done using PageNumberPagination
 
-Search and Filtering: Implement filtering to search users by name or email using query parameters (GET /users/?search=<term>).
+Search and Filtering: Implement filtering to search users by name or email using query parameters (GET /users/?search=<term>). - done using get_queryset
+
 Testing: Add unit tests for two of the API endpoints using Django's test framework
