@@ -17,7 +17,6 @@ class UserTestCase(TestCase):
 
         client = RequestsClient()
         response = client.post('http://testserver/users/', {'username': 'user3', 'email': 'e3@g.com', 'password': 'p1p2p3p4a1a2a3a4'})
-
         assert response.status_code == 201
 
         users = User.objects.all()
@@ -29,5 +28,20 @@ class UserTestCase(TestCase):
 
         assert response.status_code == 422
         assert "Password is too short" in str(response.content)
+
+    def test_patch_user(self):
+        users = User.objects.all()
+        assert len(users) == 2
+        assert users[1].username == "user2"
+
+        client = RequestsClient()
+        response = client.patch('http://testserver/users/2/', {"username": "newname"})
+        assert response.status_code == 200
+
+        users = User.objects.all()
+        assert len(users) == 2
+        assert users[1].username == "newname"
+
+        
         
 
