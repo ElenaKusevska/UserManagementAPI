@@ -1,3 +1,24 @@
 from django.test import TestCase
+from .models import User
 
-# Create your tests here.
+from rest_framework.test import RequestsClient
+
+
+class UserTestCase(TestCase):
+    def setUp(self):
+        User.objects.create(username="user1", email="u1@g.com")
+        User.objects.create(username="user2", email="u2@g.com", age="22")
+
+    def test_post_users(self):
+        users = User.objects.all()
+        assert len(users) == 2
+
+        client = RequestsClient()
+        response = client.post('http://testserver/users/', {'username': 'user3', 'email': 'e3@g.com', 'password': 'p1p2p3p4a1a2a3a4'})
+
+        assert response.status_code == 201
+
+        users = User.objects.all()
+        assert len(users) == 3
+        
+

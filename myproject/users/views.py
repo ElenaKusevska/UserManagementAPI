@@ -24,6 +24,8 @@ class UserViewSet(viewsets.ModelViewSet):
         email = self.request.query_params.get('email')
         if email is not None:
             queryset = queryset.filter(email=email)
+
+        queryset = queryset.order_by('id')
         return queryset
     
 
@@ -31,9 +33,6 @@ class UserViewSet(viewsets.ModelViewSet):
     def validate_request_data(self, request_method, request_data):
 
         # For example to check that password is not too short:
-        print("-----------------------")
-        print(request_method)
-        print("-----------------------")
         if request_method == "POST":
             if "password" in request_data.keys():
                 if len(request_data["password"]) < 8:
